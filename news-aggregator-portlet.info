@@ -11,7 +11,9 @@
         <owner url="mailto:simon@bcuni.net">Simon Carstensen</owner>
         <release-date>2003-05-15</release-date>
 
-        <!-- No dependency information -->
+        <provides url="news-aggregator-portlet" version="0.1"/>
+        <requires url="news-aggregator" version="0.1d"/>
+        <requires url="new-portal" version="0.2"/>
 
         <callbacks>
             <callback type="after-install"  proc="news_aggregator_portlet::after_install"/>
