@@ -15,7 +15,7 @@
                 <group column="source_id">
                   <tr bgcolor="#ffffff">
                       <td>
-                        @items.content@
+                        @items.content;noquote@
                         <if @items.item_link@ not nil>
                           <a href="@items.item_link@">#</a>
                         </if>
