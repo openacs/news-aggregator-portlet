@@ -11,6 +11,9 @@
                s.title, 
                to_char(last_scanned, 'YYYY-MM-DD HH24:MI:SS') as last_scanned,
                to_char(creation_date, 'YYYY-MM-DD HH24') as sort_date,
+               (select site_node.url(site_nodes.node_id)
+               from site_nodes
+               where site_nodes.object_id = package_id) as url,
 	       feed_url, 
 	       item_id, 
                i.title as item_title, 
