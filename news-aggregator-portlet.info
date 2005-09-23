@@ -7,12 +7,12 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
     
-    <version name="0.4" url="http://openacs.org/repository/download/apm/news-aggregator-portlet-0.4.apm">
+    <version name="0.5" url="http://openacs.org/repository/download/apm/news-aggregator-portlet-0.5.apm">
         <owner url="mailto:simon@bcuni.net">Simon Carstensen</owner>
         <release-date>2003-05-15</release-date>
         <summary>A portlet interface to News Aggregator</summary>
 
-        <provides url="news-aggregator-portlet" version="0.4"/>
+        <provides url="news-aggregator-portlet" version="0.5"/>
         <requires url="news-aggregator" version="0.2d"/>
         <requires url="new-portal" version="0.2d1"/>
 
