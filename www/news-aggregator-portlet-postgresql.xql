@@ -10,7 +10,7 @@
                s.description,
                s.title,
                to_char(last_scanned, 'YYYY-MM-DD HH24:MI:SS') as last_scanned,
-               to_char(creation_date, 'YYYY-MM-DD HH24') as sort_date,
+               to_char(i.creation_date, 'YYYY-MM-DD HH24') as sort_date,
                (select site_node__url(site_nodes.node_id)
                from site_nodes
                where site_nodes.object_id = package_id) as url,
@@ -19,11 +19,13 @@
                i.title as item_title,
                i.link as item_link,
                i.description as item_description
-        from   na_sources s left outer join 
-               na_items i on (s.source_id = i.source_id)
+        from   na_sources s left outer join
+               na_items i on (s.source_id = i.source_id),
+	       acs_objects o
         where  deleted_p = '0'
+	and    s.source_id = o.object_id
 	and    package_id in ([join $list_of_package_ids ", "])
-        order  by creation_date desc
+        order  by i.creation_date desc
         limit  10
 </querytext>
 </fullquery>
