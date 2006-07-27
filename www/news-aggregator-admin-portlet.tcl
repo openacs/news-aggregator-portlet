@@ -17,7 +17,14 @@ if {[llength $list_of_package_ids] > 1} {
 }        
 
 set package_id [lindex $list_of_package_ids 0]        
-set url [lindex [site_node::get_url_from_object_id -object_id $package_id] 0]
+set aggregator_id [db_string get_aggregator_id "select aggregator_id from na_aggregators where package_id = :package_id" -default ""]
+
+if {$aggregator_id eq ""} {
+    # We have a problem!
+    return -code error "There should be an aggregator"
+}
+
+set url [export_vars -base "[lindex [site_node::get_url_from_object_id -object_id $package_id] 0]subscriptions" -url {aggregator_id}]
 
 
 ad_return_template 

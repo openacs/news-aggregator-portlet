@@ -36,7 +36,7 @@
 
   <if @write_p@ eq 1>
     <p>
-      <b>&raquo;</b> <a href="@items.url@subscriptions">Add or remove subscriptions</a>
+      <b>&raquo;</b> <a href="@subscription_url@">Add or remove subscriptions</a>
     </p>
   </if>
 

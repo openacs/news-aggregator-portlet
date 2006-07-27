@@ -19,12 +19,12 @@
                i.title as item_title,
                i.link as item_link,
                i.description as item_description
-        from   na_sources s left outer join
-               na_items i on (s.source_id = i.source_id),
-	       acs_objects o
-        where  deleted_p = '0'
-	and    s.source_id = o.object_id
-	and    package_id in ([join $list_of_package_ids ", "])
+        from   na_items i,   na_sources s join (
+                           na_subscriptions su  join
+                           na_aggregators a on (a.aggregator_id = su.aggregator_id))
+                           on  (s.source_id = su.source_id)
+        where  a.package_id in ([join $list_of_package_ids ", "])
+	and    s.source_id = i.source_id
         order  by i.creation_date desc
         limit  10
 </querytext>

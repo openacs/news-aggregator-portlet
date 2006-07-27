@@ -1,3 +1,3 @@
 <ul>
-  <li><a href="@url@subscriptions">Manage subscriptions</a>
+  <li><a href="@url@">Manage subscriptions</a>
 </ul>
