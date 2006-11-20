@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<message_catalog package_key="news-aggregator-portlet" package_version="2.2.0b2" locale="en_US" charset="ISO-8859-1">
+
+  <msg key="Manage_subscriptions">Manage subscriptions</msg>
+  <msg key="news_aggregator_admin_portlet_pretty_name">News Aggregator Administration</msg>
+  <msg key="news_aggregator_portlet_pretty_name">Feed Reader</msg>
+  <msg key="No_Items">No Items</msg>
+  <msg key="pretty_name">News Aggregator</msg>
+</message_catalog>
