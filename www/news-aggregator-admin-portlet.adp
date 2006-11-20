@@ -1,3 +1,3 @@
 <ul>
-  <li><a href="@url@">Manage subscriptions</a>
+  <li><a href="@url@">#news-aggregator-portlet.Manage_subscriptions#</a>
 </ul>
