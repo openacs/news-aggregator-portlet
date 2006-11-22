@@ -26,7 +26,7 @@ ad_proc -private news_aggregator_portlet::my_package_key {
 
 ad_proc -public news_aggregator_portlet::get_pretty_name {
 } {
-    return "#news-aggregator-portlet.news_aggregator_portlet_pretty_name#"
+    return "News Aggregator"
 }
 
 

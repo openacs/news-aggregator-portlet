@@ -18,7 +18,7 @@ ad_proc -private news_aggregator_admin_portlet::get_my_name {
 
 ad_proc -public news_aggregator_admin_portlet::get_pretty_name {
 } {
-    return "#news-aggregator-portlet.news_aggregator_admin_portlet_pretty_name#"
+    return "News Aggregator Administration"
 }
 
 

@@ -42,12 +42,10 @@
 
   </if>
   <else>
-    <small>#news-aggregator-portlet.No_Items#</small>
+    <small>No Items</small>
   </else>
 
 </if>
 <else>
-  <small> 
-    #new-portal.when_portlet_shaded#
-  </small> 
+&nbsp;
 </else>
