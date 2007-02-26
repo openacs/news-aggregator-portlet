@@ -30,22 +30,20 @@
         </tr>
     </table>
 
-  <if @items:rowcount@ eq 0>
-    <small>No Feeds.</small>
-  </if>
-
   <if @write_p@ eq 1>
     <p>
-      <b>&raquo;</b> <a href="@items.url@subscriptions">Add or remove subscriptions</a>
+      <b>&raquo;</b> <a href="@subscription_url@">Add or remove subscriptions</a>
     </p>
   </if>
 
   </if>
   <else>
-    <small>No Items</small>
+    <small>#news-aggregator-portlet.No_Items#</small>
   </else>
 
 </if>
 <else>
-&nbsp;
+  <small> 
+    #new-portal.when_portlet_shaded#
+  </small> 
 </else>
