@@ -30,7 +30,7 @@
         </tr>
     </table>
 
-  <if @write_p@ eq 1>
+  <if @write_p;literal@ true>
     <p>
       <b>&raquo;</b> <a href="@subscription_url@">Add or remove subscriptions</a>
     </p>
