@@ -8,7 +8,7 @@ ad_page_contract {
 }
 
 set user_id [ad_conn user_id]
-set write_p [ad_permission_p $user_id write]
+set write_p [permission::permission_p -object_id $user_id -privilege write]
 
 array set config $cf	
 set shaded_p 0
