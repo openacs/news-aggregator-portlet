@@ -1,4 +1,4 @@
-<if @shaded_p;literal@ ne "t">
+<if @shaded_p;literal@ false>
 
   <if @items:rowcount@ gt 0>
 
