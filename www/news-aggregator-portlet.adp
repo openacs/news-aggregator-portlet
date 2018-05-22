@@ -1,4 +1,4 @@
-<if @shaded_p@ ne "t">
+<if @shaded_p;literal@ ne "t">
 
   <if @items:rowcount@ gt 0>
 
@@ -43,7 +43,7 @@
 
 </if>
 <else>
-  <small> 
+  <small>
     #new-portal.when_portlet_shaded#
-  </small> 
+  </small>
 </else>
