@@ -24,14 +24,16 @@ ad_proc -private news_aggregator_portlet::my_package_key {
 
 
 
-ad_proc -public news_aggregator_portlet::get_pretty_name {
+ad_proc -public news_aggregator_portlet::get_pretty_name {} {
+    Get portlet pretty name
 } {
     return "#news-aggregator-portlet.news_aggregator_portlet_pretty_name#"
 }
 
 
 
-ad_proc -public news_aggregator_portlet::link {
+ad_proc -public news_aggregator_portlet::link {} {
+    Get portlet link
 } {
     return ""
 }
@@ -84,6 +86,8 @@ ad_proc -public news_aggregator_portlet::remove_self_from_page {
 
 ad_proc -public news_aggregator_portlet::show {
     cf
+} {
+    Show portlet
 } {
     portal::show_proc_helper \
         -package_key [my_package_key] \
