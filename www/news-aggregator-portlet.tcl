@@ -10,13 +10,13 @@ ad_page_contract {
 set user_id [ad_conn user_id]
 set write_p [permission::permission_p -object_id $user_id -privilege write]
 
-array set config $cf	
+array set config $cf
 set shaded_p 0
 
 set list_of_package_ids $config(package_id)
 set one_instance_p [ad_decode [llength $list_of_package_ids] 1 1 0]
 
-set package_id [lindex $list_of_package_ids 0]        
+set package_id [lindex $list_of_package_ids 0]
 set aggregator_id [db_string get_aggregator_id {
     select min(aggregator_id)
       from na_aggregators
