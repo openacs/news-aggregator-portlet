@@ -17,7 +17,11 @@ set list_of_package_ids $config(package_id)
 set one_instance_p [ad_decode [llength $list_of_package_ids] 1 1 0]
 
 set package_id [lindex $list_of_package_ids 0]        
-set aggregator_id [db_string get_aggregator_id "select aggregator_id from na_aggregators where package_id = :package_id limit 1" -default ""]
+set aggregator_id [db_string get_aggregator_id {
+    select min(aggregator_id)
+      from na_aggregators
+     where package_id = :package_id
+} -default ""]
 
 if {$aggregator_id eq ""} {
     # We have a problem!
