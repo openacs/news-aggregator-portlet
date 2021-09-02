@@ -31,7 +31,7 @@ if {$aggregator_id eq ""} {
 set subscription_url [export_vars -base "[lindex [site_node::get_url_from_object_id -object_id $package_id] 0]subscriptions" -url {aggregator_id}]
 
 db_multirow -extend content items select_items {} {
-    set text_only [string_truncate -len 300 -- $item_description]
+    set text_only [ad_string_truncate -len 300 -- $item_description]
     if {[info exists item_title] && $item_tytle ne "" && ![string equal -nocase $item_title $text_only] } {
         set content "<a href=\"$item_link\">$item_title</a>. $text_only"
     } else {
