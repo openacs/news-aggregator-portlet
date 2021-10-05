@@ -30,7 +30,32 @@ if {$aggregator_id eq ""} {
 
 set subscription_url [export_vars -base "[lindex [site_node::get_url_from_object_id -object_id $package_id] 0]subscriptions" -url {aggregator_id}]
 
-db_multirow -extend content items select_items {} {
+db_multirow -extend {
+    content
+    url
+} items select_items [subst {
+    select s.source_id,
+           s.link,
+           s.description,
+           s.title,
+           to_char(last_scanned, 'YYYY-MM-DD HH24:MI:SS') as last_scanned,
+           to_char(creation_date, 'YYYY-MM-DD HH24') as sort_date,
+           (select site_nodes.node_id
+           from site_nodes
+           where site_nodes.object_id = package_id) as node_id,
+           feed_url,
+           item_id,
+           i.title as item_title,
+           i.link as item_link,
+           i.description as item_description
+    from   na_sources s left outer join
+           na_items i on (s.source_id = i.source_id)
+    where  deleted_p = '0'
+    and    package_id in ([join $list_of_package_ids ", "])
+    order  by creation_date desc
+    fetch first 10 rows only
+}] {
+    set url [site_node::get_url -node_id $node_id]
     set text_only [ad_string_truncate -len 300 -- $item_description]
     if {[info exists item_title] && $item_tytle ne "" && ![string equal -nocase $item_title $text_only] } {
         set content "<a href=\"$item_link\">$item_title</a>. $text_only"
